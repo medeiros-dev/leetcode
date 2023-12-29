@@ -4,17 +4,17 @@ func isPalindrome(x int) bool {
         return false
     }
 
-	slc := []int{}
-	for x > 0 {
-		slc = append(slc, x%10)
-		x = x / 10
-	}
-		
-	for i, j := 0, len(slc) - 1; i < j; i, j = i+1, j-1 {
-		if slc[i] != slc[j]{
-			return false
-		}
-	}
+    if x < 10{
+        return true
+    }
 
-	return true
+    aux := x
+    reverse := 0
+
+    for aux > 0{
+        reverse = reverse*10 + aux%10
+        aux = aux/10
+    }
+
+	return x == reverse
 }
