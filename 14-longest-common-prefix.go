@@ -1,25 +1,21 @@
 func longestCommonPrefix(strs []string) string {
-    prefix := strs[0]
+    
+	prefix := strs[0]
+
+    if(len(prefix) == 0){
+        return ""
+    }
 
 	for _, s := range strs{
-
-		toLarge:
-		if len(prefix) > len(s){
+		
+		for len(prefix) > len(s) || prefix[:] != s[:len(prefix)]{
 			prefix = prefix[:len(prefix)-1]
-			goto toLarge
-		}
+		} 
 
-		findPrefix:
 		if len(prefix) == 0{
 			break
 		}
-		if prefix[:] == s[:len(prefix)]{
-			continue
-		}else{
-			prefix = prefix[:len(prefix)-1]
-			goto findPrefix
-		}
-
+        
 	}
 
 	return prefix
