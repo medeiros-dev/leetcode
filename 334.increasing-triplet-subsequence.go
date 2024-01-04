@@ -1,11 +1,11 @@
 func increasingTriplet(nums []int) bool {
-	smallest := math.MaxInt
-	greatest := math.MaxInt
+	first := math.MaxInt
+	second := math.MaxInt
 	for _, n := range nums {
-		if n <= smallest {
-			smallest = n
-		} else if n <= greatest {
-			greatest = n
+		if n <= first {
+			first = n
+		} else if n <= second {
+			second = n
 		} else {
 			return true
 		}
